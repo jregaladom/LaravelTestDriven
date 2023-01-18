@@ -13,17 +13,21 @@
                         <tr>
                             <th>ID</th>
                             <th>Enlace</th>
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($repositories as $repository)
                         <tr>
-                            <td>{{$repository->id}}</td>
-                            <td>{{$repository->url}}</td>
+                            <td class="border px-4 py-2">{{$repository->id}}</td>
+                            <td class="border px-4 py-2">{{$repository->url}}</td>
+                            <td class="px-4 py-2">
+                                <a href="{{route('repositories.show', $repository->id)}}">Ver</a>
+                            </td>
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="2">No hay repositorios creados</td>
+                            <td colspan="3">No hay repositorios creados</td>
                         </tr>
                         @endforelse
                     </tbody>
