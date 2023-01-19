@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Repository;
 use App\Http\Controllers\RepositoryController;
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,7 @@ use App\Http\Controllers\RepositoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class,  'home']);
 
 Route::middleware([
     'auth:sanctum',
